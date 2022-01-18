@@ -1,4 +1,6 @@
 import React from 'react';
+import { Box } from '@chakra-ui/react';
+import { MdMenu } from 'react-icons/md';
 
 const Hamburger = ({ active, onActive, offActive }) => {
   const handleClick = (e) => {
@@ -10,15 +12,9 @@ const Hamburger = ({ active, onActive, offActive }) => {
   };
 
   return (
-    <span
-      className={'hamburger hamburger--emphatic ' + (active && 'is-active')}
-      type="button"
-      onClick={handleClick}
-    >
-      <span className="hamburger-box">
-        <span className="hamburger-inner"></span>
-      </span>
-    </span>
+    <Box onClick={handleClick} fontSize={'30px'} as={'button'}>
+      <MdMenu />
+    </Box>
   );
 };
 

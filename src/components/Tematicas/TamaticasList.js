@@ -11,7 +11,7 @@ const TamaticasList = ({ data = [] }) => {
             <Box
               key={item.label}
               height={'240px'}
-              maxW="382px"
+              maxWidth="382px"
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"

@@ -1,21 +1,20 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
-import { Flex } from '@chakra-ui/react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Flex, Box } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
-import CategoryContext from '../../context/CategoryContex';
 import Pagination from '../Pagination/Pagination';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
 import TematicaList from './TematicaList';
+import TematicaMenu from './TematicaMenu';
+import TematicaContext from '../../context/TematicaContex';
 
 const Tematica = () => {
-  const [route, setRoute] = useState('');
-  const [data, setData] = useState([]);
   const [page, setPage] = useState(1);
   const [maxPage, setMaxPage] = useState(1);
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   let loc = location.pathname.split('/');
 
-  const { categoryGet } = useContext(CategoryContext);
+  const { categoryGet } = useContext(TematicaContext);
 
   // const categories = useMemo(() =>getFiguresByCategory(loc[loc.length - 1]) , []);
 
@@ -25,7 +24,6 @@ const Tematica = () => {
       try {
         const res = await categoryGet(loc[loc.length - 1], page);
         // console.log(res);
-        setData(res?.data);
         setMaxPage(res?.maxPage ? res?.maxPage : 1);
       } catch (error) {
         console.log(error);
@@ -42,7 +40,6 @@ const Tematica = () => {
       try {
         const res = await categoryGet(loc[loc.length - 1], page);
         // console.log(res);
-        setData(res.data);
         setMaxPage(res.maxPage ? res.maxPage : 1);
       } catch (error) {
         console.log(error);
@@ -62,7 +59,9 @@ const Tematica = () => {
         flexDir={'column'}
         p={5}
       >
-        {loading ? <SpinnerComponent /> : <TematicaList data={data} />}
+        <TematicaMenu />
+
+        {loading ? <SpinnerComponent /> : <TematicaList page={page} />}
         {(page === 1 && maxPage === 1) || (
           <Pagination page={page} setPage={setPage} maxPage={maxPage} loading={loading} />
         )}

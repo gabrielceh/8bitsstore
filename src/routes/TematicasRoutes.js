@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Tematica from '../components/Tematicas/Tematica';
 import TematicasView from '../views/TematicasView';
 import Page404 from '../views/Page404';
-import { CategoryProvider } from '../context/CategoryContex';
+import { TematicaProvider } from '../context/TematicaContex';
 
 const TematicasRoutes = () => {
   return (
@@ -13,41 +13,41 @@ const TematicasRoutes = () => {
       <Route
         path="/comics"
         element={
-          <CategoryProvider>
+          <TematicaProvider>
             <Tematica />
-          </CategoryProvider>
+          </TematicaProvider>
         }
       />
       <Route
         path="/manga-anime"
         element={
-          <CategoryProvider>
+          <TematicaProvider>
             <Tematica />
-          </CategoryProvider>
+          </TematicaProvider>
         }
       />
       <Route
         path="/videogames"
         element={
-          <CategoryProvider>
+          <TematicaProvider>
             <Tematica />
-          </CategoryProvider>
+          </TematicaProvider>
         }
       />
       <Route
         path="/movies-series"
         element={
-          <CategoryProvider>
+          <TematicaProvider>
             <Tematica />
-          </CategoryProvider>
+          </TematicaProvider>
         }
       />
       <Route
         path="/others"
         element={
-          <CategoryProvider>
+          <TematicaProvider>
             <Tematica />
-          </CategoryProvider>
+          </TematicaProvider>
         }
       />
       <Route path="/*" element={<Page404 />} />

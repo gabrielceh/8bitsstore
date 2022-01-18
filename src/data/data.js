@@ -15,7 +15,7 @@ export const figures = [
     category: [categories.comic],
     img: noImage,
     alt: 'alt',
-    price: '7000',
+    price: 7000,
     type: '',
   },
   {
@@ -24,7 +24,7 @@ export const figures = [
     category: [categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '8000',
+    price: 8000,
     type: '',
   },
   {
@@ -33,7 +33,7 @@ export const figures = [
     category: [categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '10000',
+    price: 10000,
     type: '',
   },
   {
@@ -42,7 +42,7 @@ export const figures = [
     category: [categories.videoGames, categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '6000',
+    price: 6000,
     type: '',
   },
   {
@@ -51,7 +51,7 @@ export const figures = [
     category: [categories.videoGames, categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '6000',
+    price: 6000,
     type: '',
   },
   {
@@ -60,7 +60,7 @@ export const figures = [
     category: [categories.videoGames, categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '6000',
+    price: 6000,
     type: '',
   },
   {
@@ -69,7 +69,7 @@ export const figures = [
     category: [categories.videoGames, categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '6000',
+    price: 6000,
     type: '',
   },
   {
@@ -78,7 +78,7 @@ export const figures = [
     category: [categories.videoGames, categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '8000',
+    price: 8000,
     type: '',
   },
   {
@@ -87,7 +87,7 @@ export const figures = [
     category: [categories.videoGames, categories.mangaAnime],
     img: noImage,
     alt: 'alt',
-    price: '9000',
+    price: 9000,
     type: '',
   },
 ];

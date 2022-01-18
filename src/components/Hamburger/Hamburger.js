@@ -10,15 +10,15 @@ const Hamburger = ({ active, onActive, offActive }) => {
   };
 
   return (
-    <div
+    <span
       className={'hamburger hamburger--emphatic ' + (active && 'is-active')}
       type="button"
       onClick={handleClick}
     >
-      <div className="hamburger-box">
-        <div className="hamburger-inner"></div>
-      </div>
-    </div>
+      <span className="hamburger-box">
+        <span className="hamburger-inner"></span>
+      </span>
+    </span>
   );
 };
 

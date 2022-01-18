@@ -7,6 +7,7 @@ import banner960 from './Banner960.jpg';
 import categoryComics from './category-comics.jpg';
 import categoryMangaAnime from './category-manga-anime.jpg';
 import categoryMovies from './category-movies.jpg';
+import noImg from './no-image.png';
 
 export const LogoImg = {
   img: logo,
@@ -56,4 +57,9 @@ export const categoryImgs = {
     atribution: 'https://www.freepik.es/vectores/patron',
     label: 'Designed by Freepik',
   },
+};
+
+export const noImage = {
+  img: noImg,
+  alt: 'Imagen no disponible',
 };

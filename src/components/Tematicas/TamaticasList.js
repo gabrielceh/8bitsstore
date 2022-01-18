@@ -4,7 +4,7 @@ import { LinkCommon } from '../../styled/links.styled';
 
 const TamaticasList = ({ data = [] }) => {
   return (
-    <SimpleGrid minChildWidth="250px" spacing="40px">
+    <SimpleGrid minChildWidth="250px" spacingX="10px" spacingY="20px">
       {data.length <= 0
         ? ''
         : data.map((item) => (
@@ -16,10 +16,11 @@ const TamaticasList = ({ data = [] }) => {
               borderRadius="lg"
               overflow="hidden"
               margin={{ base: '0 auto', sm: '0' }}
+              className="animate__animated animate__fadeIn"
             >
               <Box
                 bgImg={`url(${item.img382})`}
-                w={{ base: '100%px' }}
+                w={{ base: '100%' }}
                 h={{ base: '150px' }}
                 bgRepeat={'no-repeat'}
                 bgPosition={'center'}

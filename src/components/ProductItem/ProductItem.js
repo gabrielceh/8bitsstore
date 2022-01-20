@@ -1,11 +1,9 @@
+import React from 'react';
 import { Badge, Box, Image, Text } from '@chakra-ui/react';
-import React, { useContext } from 'react';
-import TematicaContext from '../../context/TematicaContex';
 import { categoriesColor } from '../../data/categoriesColors';
+import BtnFav from '../BtnFav/BtnFav';
 
-const TematicaItem = ({ item, typeView }) => {
-  // console.log(item.category);
-
+const ProductItem = ({ item, typeView }) => {
   return (
     <Box
       maxW={typeView === 'grid' ? '250px' : '100%'}
@@ -30,7 +28,7 @@ const TematicaItem = ({ item, typeView }) => {
 
         <Box
           p="3"
-          maxW={typeView === 'grid' ? '180px' : '100%'}
+          w={typeView === 'grid' ? '180px' : '100%'}
           margin={typeView === 'grid' ? '0 auto' : '0'}
         >
           <Box display="flex" flexDir={'row'} alignItems="center" flexWrap={'wrap'}>
@@ -49,6 +47,7 @@ const TematicaItem = ({ item, typeView }) => {
               </Badge>
             ))}
           </Box>
+
           {item.typeProd.map((el) => (
             <Box
               key={el}
@@ -67,13 +66,18 @@ const TematicaItem = ({ item, typeView }) => {
             {item.name}
           </Box>
 
-          <Box>
-            <Text as="span" color={'blue.300'}>
-              ${item.price}
-            </Text>
-            <Text as="span" color="gray.600" fontSize="xs">
-              / COP
-            </Text>
+          <Box display={'flex'} justifyContent={'space-between'} alignItems={'center'} w={'100%'}>
+            <Box w={'40%'}>
+              <Text as="span" color={'blue.300'}>
+                ${item.price}
+              </Text>
+              <Text as="span" color="gray.600" fontSize="xs">
+                / COP
+              </Text>
+            </Box>
+            <Box justifySelf={'flex-end'}>
+              <BtnFav item={item} isFav={item.isFav} />
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -81,4 +85,4 @@ const TematicaItem = ({ item, typeView }) => {
   );
 };
 
-export default TematicaItem;
+export default ProductItem;

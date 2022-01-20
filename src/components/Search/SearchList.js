@@ -1,10 +1,10 @@
-import React, { useContext, useEffect, useState } from 'react';
 import { Box, SimpleGrid, Text } from '@chakra-ui/react';
-import TematicaContext from '../../context/TematicaContex';
+import React, { useContext, useEffect, useState } from 'react';
+import SearchContext from '../../context/SearchContext';
 import ProductItem from '../ProductItem/ProductItem';
 
-const TematicaList = ({ page }) => {
-  const { resData, typeView, dataOrderByName, dataOrderByPrice } = useContext(TematicaContext);
+const SearchList = ({ page }) => {
+  const { resData, typeView, dataOrderByName, dataOrderByPrice } = useContext(SearchContext);
   const [dataShow, setDataShow] = useState(resData);
 
   useEffect(() => {
@@ -46,20 +46,26 @@ const TematicaList = ({ page }) => {
 
   // orderCategoryByName(data);
   return (
-    <SimpleGrid
-      columns={typeView === 'grid' ? { base: 1, sm: 2, md: 3, lg: 4 } : { base: 1, sm: 1 }}
-      spacingX="10px"
-      spacingY="20px"
-    >
+    <>
       {dataShow.length <= 0 ? (
         <Box>
-          <Text>No se encontraron elementos para esta categoria</Text>
+          <Text fontSize={'25px'} fontWeight={'light'}>
+            No se encontraron elementos para la busqueda
+          </Text>
         </Box>
       ) : (
-        dataShow.map((item) => <ProductItem key={item.id} item={item} typeView={typeView} />)
+        <SimpleGrid
+          columns={typeView === 'grid' ? { base: 1, sm: 2, md: 3, lg: 4 } : { base: 1, sm: 1 }}
+          spacingX="10px"
+          spacingY="20px"
+        >
+          {dataShow.map((item) => (
+            <ProductItem key={item.id} item={item} typeView={typeView} />
+          ))}
+        </SimpleGrid>
       )}
-    </SimpleGrid>
+    </>
   );
 };
 
-export default TematicaList;
+export default SearchList;

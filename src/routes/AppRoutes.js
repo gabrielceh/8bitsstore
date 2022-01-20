@@ -8,6 +8,8 @@ import FavoritosView from '../views/FavoritosView';
 import ContactoView from '../views/ContactoView';
 import TematicasRoutes from './TematicasRoutes';
 import Footer from '../components/Footer/Footer';
+import SearchView from '../views/SearchView';
+import { SearchProvider } from '../context/SearchContext';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -31,6 +33,14 @@ const AppRoutes = () => {
         <Route path="/tematica/*" element={<TematicasRoutes />} />
         <Route path="/favoritos" element={<FavoritosView />} />
         <Route path="/contacto" element={<ContactoView />} />
+        <Route
+          path="/search"
+          element={
+            <SearchProvider>
+              <SearchView />
+            </SearchProvider>
+          }
+        />
         <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer />

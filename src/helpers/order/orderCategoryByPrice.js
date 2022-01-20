@@ -1,4 +1,4 @@
-export const orderCategoryByPrice = (data = [], order = 'Asc') => {
+export const orderDataByPrice = (data = [], order = 'Asc') => {
   // console.log(data);
 
   if (data.length <= 0) {

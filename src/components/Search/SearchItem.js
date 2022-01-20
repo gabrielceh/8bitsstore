@@ -1,10 +1,10 @@
-import { Badge, Box, Image, Text } from '@chakra-ui/react';
 import React, { useContext } from 'react';
-import TematicaContext from '../../context/TematicaContex';
+import { Badge, Box, Image, Text } from '@chakra-ui/react';
+import SearchContext from '../../context/SearchContext';
 import { categoriesColor } from '../../data/categoriesColors';
 
-const TematicaItem = ({ item, typeView }) => {
-  // console.log(item.category);
+const SearchItem = ({ item, typeView }) => {
+  // const { typeView } = useContext(SearchContext);
 
   return (
     <Box
@@ -48,21 +48,17 @@ const TematicaItem = ({ item, typeView }) => {
                 {cat}
               </Badge>
             ))}
-          </Box>
-          {item.typeProd.map((el) => (
+
             <Box
-              key={el}
-              my="0.5rem"
-              color={'gray.400'}
+              color="gray.500"
               fontWeight="semibold"
-              fontSize={'10px'}
-              lineHeight="tight"
+              letterSpacing="wide"
+              fontSize="xs"
               textTransform="uppercase"
-              isTruncated
-            >
-              {el}
-            </Box>
-          ))}
+              ml="2"
+            ></Box>
+          </Box>
+
           <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
             {item.name}
           </Box>
@@ -81,4 +77,4 @@ const TematicaItem = ({ item, typeView }) => {
   );
 };
 
-export default TematicaItem;
+export default SearchItem;

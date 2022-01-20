@@ -5,6 +5,7 @@ import colors from './foundations/colors';
 import fonts from './foundations/fonts';
 import Text from './components/Text';
 import Flex from './components/Flex';
+import Box from './components/Box';
 
 const config = {
   initialColorMode: 'light',
@@ -18,7 +19,7 @@ const theme = extendTheme({
   fonts,
   colors,
   zIndices,
-  components: { Text, Flex },
+  components: { Text, Flex, Box },
 });
 
 export default theme;

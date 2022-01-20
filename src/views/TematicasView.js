@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Flex } from '@chakra-ui/react';
 import TamaticasList from '../components/Tematicas/TamaticasList';
 import { getCategories } from '../helpers/getCategories';
@@ -7,6 +7,9 @@ import BreadcrumbComponent from '../components/BreadcrumbComponent/BreadcrumbCom
 const TematicasView = () => {
   const categories = useMemo(() => getCategories(), []);
   // categories && console.log(categories);
+  useEffect(() => {
+    document.title = `8 Bits Store bq - Tematicas`;
+  }, []);
 
   return (
     <>

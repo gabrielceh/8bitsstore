@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { Box, Divider } from '@chakra-ui/react';
-import ShowTypeView from '../ShowTypeView/ShowTypeView';
-import TematicaContext from '../../context/TematicaContex';
+import { Box } from '@chakra-ui/react';
+import SearchContext from '../../context/SearchContext';
 import MenuOrder from '../MenuOrder/MenuOrder';
+import ShowTypeView from '../ShowTypeView/ShowTypeView';
 
-const TematicaMenu = () => {
-  const { resData, typeView, setTypeView, orderName, orderPrice } = useContext(TematicaContext);
+const SearchMenu = () => {
+  const { resData, typeView, setTypeView, orderName, orderPrice } = useContext(SearchContext);
 
   const handleOrderByName = (type) => {
     orderName(resData, type);
@@ -21,8 +21,6 @@ const TematicaMenu = () => {
       width={'100%'}
       borderWidth="1px"
       p={3}
-      my={5}
-      mb={10}
       display={'flex'}
       justifyContent={'flex-end'}
       alignItems={'center'}
@@ -52,4 +50,4 @@ const TematicaMenu = () => {
   );
 };
 
-export default TematicaMenu;
+export default SearchMenu;

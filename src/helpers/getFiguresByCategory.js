@@ -9,7 +9,7 @@ const getFiguresByCategory = async (category, page = 1) => {
 
   const data = await figures.filter((fig) => fig.category.includes(category));
 
-  const itemPerPage = 5;
+  const itemPerPage = 16;
   let lastPage = Math.ceil(data.length / itemPerPage);
   // console.log(lastPage);
   let dataToSend = [];

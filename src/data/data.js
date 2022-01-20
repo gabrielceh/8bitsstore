@@ -1,4 +1,5 @@
 import { noImage } from '../assets/img/images';
+import { typeProduct } from './typeProduct';
 
 const categories = {
   comic: 'comics',
@@ -11,12 +12,12 @@ const categories = {
 export const figures = [
   {
     id: '1',
-    name: 'Batman',
+    name: 'Superman',
     category: [categories.comic],
     img: noImage,
     alt: 'alt',
     price: 7000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '2',
@@ -25,7 +26,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 8000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '3',
@@ -34,7 +35,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 10000,
-    type: '',
+    typeProd: [typeProduct.figura],
   },
   {
     id: '4',
@@ -43,7 +44,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 6000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '5',
@@ -52,7 +53,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 6000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '6',
@@ -61,7 +62,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 6000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '7',
@@ -70,7 +71,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 6000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '8',
@@ -79,7 +80,7 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 8000,
-    type: '',
+    typeProd: [typeProduct.llavero],
   },
   {
     id: '9',
@@ -88,6 +89,6 @@ export const figures = [
     img: noImage,
     alt: 'alt',
     price: 9000,
-    type: '',
+    typeProd: [typeProduct.figura],
   },
 ];

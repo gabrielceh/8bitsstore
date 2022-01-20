@@ -4,8 +4,8 @@ import theme from '../theme/theme';
 
 export const LinksNavBar = styled(NavLink)`
   margin-left: 0.5rem;
-  padding-bottom: 1.2rem;
-  font-weight: bold;
+  padding-bottom: 1rem;
+  font-weight: normal;
   font-family: 'Raleway', sans-serif;
 
   &.active {

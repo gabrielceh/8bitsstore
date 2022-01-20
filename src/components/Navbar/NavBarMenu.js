@@ -1,10 +1,13 @@
+import { Box } from '@chakra-ui/react';
 import React, { useState } from 'react';
+
 import { useModal } from '../../hooks/useModal';
 import { LinksNavBar } from '../../styled/links.styled';
 import Hamburger from '../Hamburger/Hamburger';
 import HamburgerMenu from '../Hamburger/HamburgerMenu';
+import SearchICon from '../Search/SearchICon';
 
-const NavBarMenu = () => {
+const NavBarMenu = ({ setClickSearch, click }) => {
   const [wSize, setWSize] = useState(window.innerWidth);
   const [isOpen, onOpen, onClose] = useModal();
 
@@ -20,7 +23,8 @@ const NavBarMenu = () => {
   });
 
   return (
-    <div>
+    <Box display={{ base: 'flex', md: 'block' }} justifyContent={'center'} alignItems={'center'}>
+      <SearchICon setClick={setClickSearch} click={click} />
       {wSize < 768 ? (
         <>
           <Hamburger active={isOpen} onActive={onOpen} offActive={onClose} />
@@ -37,7 +41,7 @@ const NavBarMenu = () => {
           </LinksNavBar>
         ))
       )}
-    </div>
+    </Box>
   );
 };
 

@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
-import { MdGridView, MdList } from 'react-icons/md';
+import { MdList } from 'react-icons/md';
+import { BiGridHorizontal } from 'react-icons/bi';
 
 const ShowTypeView = ({ typeView, setTypeView }) => {
   const handleTypeView = (e) => {
@@ -14,9 +15,13 @@ const ShowTypeView = ({ typeView, setTypeView }) => {
   };
 
   return (
-    <Box fontSize={'30px'}>
+    <Box fontSize={'40px'}>
       {typeView === 'grid' ? (
-        <MdGridView onClick={handleTypeView} cursor={'pointer'} title={'Cambiar a vista Lista'} />
+        <BiGridHorizontal
+          onClick={handleTypeView}
+          cursor={'pointer'}
+          title={'Cambiar a vista Lista'}
+        />
       ) : (
         <MdList onClick={handleTypeView} cursor={'pointer'} title={'Cambiar a vista Grilla'} />
       )}

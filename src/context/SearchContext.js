@@ -1,28 +1,29 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { getFiguresByCategory } from '../helpers/getFiguresByCategory';
+import { getSearch } from '../helpers/search/getSearch';
 import { orderDataByName } from '../helpers/order/orderCategoryByName';
 import { orderDataByPrice } from '../helpers/order/orderCategoryByPrice';
 import FavoriteContext from './FavoriteContext';
 
-const TematicaContext = createContext();
+const SearchContext = createContext();
 
 const fav8bits = 'fav-8bits-store';
 let initialFav = localStorage.getItem(fav8bits) ? JSON.parse(localStorage.getItem(fav8bits)) : [];
 
-export const TematicaProvider = ({ children }) => {
+export const SearchProvider = ({ children }) => {
   const [typeView, setTypeView] = useState('grid');
-  const [resData, setResData] = useState([]);
-  const [completeRes, setCompleteRes] = useState({});
+  const [resData, setResData] = useState([]); //Muestra los items
+  const [completeRes, setCompleteRes] = useState({}); //Muestra la respuesta completa
   const [dataOrderByName, setDataOrderByName] = useState([]);
   const [dataOrderByPrice, setDataOrderByPrice] = useState([]);
+
   const { updateFav } = useContext(FavoriteContext);
 
   useEffect(() => {
     initialFav = localStorage.getItem(fav8bits) ? JSON.parse(localStorage.getItem(fav8bits)) : [];
   }, [updateFav]);
 
-  const categoryGet = async (category, page) => {
-    const res = await getFiguresByCategory(category, page);
+  const resGetSearch = async (search, page) => {
+    const res = await getSearch(search, page);
     const local = initialFav.map((item) => item);
 
     const resLocal = res.data.map((item) => {
@@ -59,7 +60,7 @@ export const TematicaProvider = ({ children }) => {
     completeRes,
     resData,
     setResData,
-    categoryGet,
+    resGetSearch,
     typeView,
     setTypeView,
     orderName,
@@ -70,7 +71,7 @@ export const TematicaProvider = ({ children }) => {
     orderPrice,
   };
 
-  return <TematicaContext.Provider value={data}>{children}</TematicaContext.Provider>;
+  return <SearchContext.Provider value={data}>{children}</SearchContext.Provider>;
 };
 
-export default TematicaContext;
+export default SearchContext;

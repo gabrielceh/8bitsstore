@@ -6,7 +6,7 @@ import { LogoHeader } from '../../styled/logo.styled';
 
 const Logo = () => {
   return (
-    <Box mb={{ base: '1rem', md: '0' }}>
+    <Box>
       <Link to="/">
         <LogoHeader src={Logo100Img.img} alt={Logo100Img.alt} />
       </Link>

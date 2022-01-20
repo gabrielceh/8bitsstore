@@ -1,6 +1,15 @@
 import React from 'react';
 import { Box, SimpleGrid, Text } from '@chakra-ui/react';
 import { LinkCommon } from '../../styled/links.styled';
+import styled from 'styled-components/macro';
+import { Link } from 'react-router-dom';
+
+const ImageBox = styled(Box)`
+  transition: transform 0.3s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
+`;
 
 const TamaticasList = ({ data = [] }) => {
   return (
@@ -18,14 +27,17 @@ const TamaticasList = ({ data = [] }) => {
               margin={{ base: '0 auto', sm: '0' }}
               className="animate__animated animate__fadeIn"
             >
-              <Box
-                bgImg={`url(${item.img382})`}
-                w={{ base: '100%' }}
-                h={{ base: '150px' }}
-                bgRepeat={'no-repeat'}
-                bgPosition={'center'}
-                overflow={'hidden'}
-              ></Box>
+              <Link to={item.route}>
+                <Box overflow={'hidden'}>
+                  <ImageBox
+                    bgImg={`url(${item.img382})`}
+                    w={{ base: '100%' }}
+                    h={{ base: '150px' }}
+                    bgRepeat={'no-repeat'}
+                    bgPosition={'center'}
+                  ></ImageBox>
+                </Box>
+              </Link>
 
               <Box textAlign={'right'} px={3} mt={1}>
                 <a href={item.attribution} target="_blank" rel="noreferrer">

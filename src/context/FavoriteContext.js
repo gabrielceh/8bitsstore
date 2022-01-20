@@ -23,7 +23,7 @@ export const FavoriteProvider = ({ children }) => {
         title: `El elemento ya esta en la lista de favoritos`,
         variant: 'solid',
         status: 'warning',
-        position: 'top',
+        position: 'bottom-right',
         isClosable: true,
       });
       return;
@@ -35,7 +35,7 @@ export const FavoriteProvider = ({ children }) => {
       title: `${item.name} agregada a la lista de favoritos 💔`,
       variant: 'solid',
       status: 'success',
-      position: 'top',
+      position: 'bottom-right',
       isClosable: true,
     });
   };
@@ -48,7 +48,19 @@ export const FavoriteProvider = ({ children }) => {
       title: `${item.name} ya no se encuentra en la lista de favoritos 💔`,
       variant: 'solid',
       status: 'success',
-      position: 'top',
+      position: 'bottom-right',
+      isClosable: true,
+    });
+  };
+
+  const clearFavorites = () => {
+    localStorage.removeItem(fav8bits);
+    setUpdateFav(!updateFav);
+    toast({
+      title: `Se ha limpiado tu lista de favoritos 💔`,
+      variant: 'solid',
+      status: 'success',
+      position: 'bottom-right',
       isClosable: true,
     });
   };
@@ -57,6 +69,7 @@ export const FavoriteProvider = ({ children }) => {
     updateFav,
     addFavorite,
     deleteFavorite,
+    clearFavorites,
   };
 
   return <FavoriteContext.Provider value={data}>{children}</FavoriteContext.Provider>;

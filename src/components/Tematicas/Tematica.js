@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Flex, Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Pagination from '../Pagination/Pagination';
 import SpinnerComponent from '../Spinner/SpinnerComponent';

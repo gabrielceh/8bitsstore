@@ -26,6 +26,12 @@ export const SearchProvider = ({ children }) => {
     const res = await getSearch(search, page);
     const local = initialFav.map((item) => item);
 
+    if (local.length <= 0) {
+      setCompleteRes(res);
+      setResData(res.data);
+      return res;
+    }
+
     const resLocal = res.data.map((item) => {
       let el;
       for (let l of local) {

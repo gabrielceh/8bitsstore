@@ -14,7 +14,7 @@ const NavBarMenu = ({ setClickSearch, click }) => {
   const links = [
     { to: '/nuevo', label: 'Lo nuevo' },
     { to: '/tematica', label: 'Temáticas' },
-    { to: '/favoritos', label: 'Favoritos' },
+    { to: '/favoritos?pg=1', label: 'Favoritos' },
     { to: '/contacto', label: 'Contactamos' },
   ];
 

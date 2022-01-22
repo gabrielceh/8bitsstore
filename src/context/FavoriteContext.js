@@ -32,7 +32,7 @@ export const FavoriteProvider = ({ children }) => {
     localStorage.setItem(fav8bits, [JSON.stringify(addData)]);
     setUpdateFav(!updateFav);
     toast({
-      title: `${item.name} agregada a la lista de favoritos 💔`,
+      title: `${item.name} agregada a la lista de favoritos 🤩`,
       variant: 'solid',
       status: 'success',
       position: 'bottom-right',

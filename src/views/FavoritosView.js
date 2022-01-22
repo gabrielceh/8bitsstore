@@ -8,6 +8,7 @@ import SpinnerComponent from '../components/Spinner/SpinnerComponent';
 import Pagination from '../components/Pagination/Pagination';
 import FavoritesMenu from '../components/Favorites/FavoritesMenu';
 import FavoritesListe from '../components/Favorites/FavoritesListe';
+import SectionTitle from '../components/SectionTitle/SectionTitle';
 
 const FavoritosView = () => {
   const location = useLocation();
@@ -44,6 +45,7 @@ const FavoritosView = () => {
 
   return (
     <>
+      <SectionTitle title={'Tus Favoritos 🤗'} />
       <Flex
         w={{ base: '100%', md: '90%', '2xl': '1536px' }}
         mx={'auto'}

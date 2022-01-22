@@ -11,6 +11,9 @@ import Footer from '../components/Footer/Footer';
 import SearchView from '../views/SearchView';
 import { SearchProvider } from '../context/SearchContext';
 import { FavViewProvider } from '../context/FavViewContext';
+import { NewProvider } from '../context/NewContext';
+import ProductDetailsView from '../views/ProductDetailsView';
+import { DetailsProvider } from '../context/DetailContext';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -30,7 +33,14 @@ const AppRoutes = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/nuevo" element={<NuevoView />} />
+        <Route
+          path="/nuevo"
+          element={
+            <NewProvider>
+              <NuevoView />
+            </NewProvider>
+          }
+        />
         <Route path="/tematica/*" element={<TematicasRoutes />} />
         <Route
           path="/favoritos"
@@ -41,6 +51,14 @@ const AppRoutes = () => {
           }
         />
         <Route path="/contacto" element={<ContactoView />} />
+        <Route
+          path="/details/*"
+          element={
+            <DetailsProvider>
+              <ProductDetailsView />
+            </DetailsProvider>
+          }
+        />
         <Route
           path="/search"
           element={

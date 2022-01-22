@@ -2,8 +2,16 @@ import React from 'react';
 import { Badge, Box, Image, Text } from '@chakra-ui/react';
 import { categoriesColor } from '../../data/categoriesColors';
 import BtnFav from '../BtnFav/BtnFav';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ProductItem = ({ item, typeView }) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  let loc = location.pathname.split('/');
+
+  const handleDetail = () => {
+    navigate(`/details/${item.name}?qid=${item.id}&name=${item.name}`);
+  };
   return (
     <Box
       maxW={typeView === 'grid' ? '250px' : '100%'}
@@ -13,6 +21,8 @@ const ProductItem = ({ item, typeView }) => {
       overflow="hidden"
       margin={'0 auto'}
       className="animate__animated animate__fadeIn"
+      onClick={handleDetail}
+      cursor={'pointer'}
     >
       <Box
         display={typeView === 'grid' ? '' : 'flex'}

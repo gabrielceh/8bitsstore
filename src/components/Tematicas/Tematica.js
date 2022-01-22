@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Flex } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Pagination from '../Pagination/Pagination';
 import SpinnerComponent from '../Spinner/SpinnerComponent';
@@ -8,6 +8,7 @@ import TematicaMenu from './TematicaMenu';
 import TematicaContext from '../../context/TematicaContex';
 import queryString from 'query-string';
 import FavoriteContext from '../../context/FavoriteContext';
+import SectionTitle from '../SectionTitle/SectionTitle';
 
 const Tematica = () => {
   const location = useLocation();
@@ -42,44 +43,9 @@ const Tematica = () => {
     req();
   }, [page, updateFav]);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const req = async () => {
-  //     try {
-  //       const res = await categoryGet(loc[loc.length - 1], page);
-  //       // console.log(res);
-  //       setMaxPage(res.maxPage ? res.maxPage : 1);
-  //       navigate(`?pg=${page}`);
-  //       document.title = `8 Bits Store bq - ${loc[loc.length - 1]}`;
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   req();
-  // }, [page]);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   const req = async () => {
-  //     try {
-  //       const res = await categoryGet(loc[loc.length - 1], page);
-  //       // console.log(res);
-  //       setMaxPage(res.maxPage ? res.maxPage : 1);
-  //       navigate(`?pg=${page}`);
-  //       document.title = `8 Bits Store bq - ${loc[loc.length - 1]}`;
-  //     } catch (error) {
-  //       console.log(error);
-  //     } finally {
-  //       setLoading(false);
-  //     }
-  //   };
-  //   req();
-  // }, [updateFav]);
-
   return (
     <>
+      <SectionTitle title={loc[loc.length - 1]} />
       <Flex
         w={{ base: '100%', md: '90%', '2xl': '1536px' }}
         mx={'auto'}

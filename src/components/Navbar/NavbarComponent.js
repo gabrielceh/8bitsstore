@@ -32,7 +32,7 @@ const NavbarComponent = ({ breadCrumb }) => {
         </Flex>
       </Box>
 
-      <Box position={'sticky'} top={'0px'} zIndex={'sticky'}>
+      <Box position={'sticky'} top={'0px'} zIndex={'sticky'} boxShadow="md">
         <header>
           <Box
             bg="yellowPrincipal.primary"

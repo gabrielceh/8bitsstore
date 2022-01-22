@@ -8,6 +8,7 @@ import categoryComics from './category-comics.jpg';
 import categoryMangaAnime from './category-manga-anime.jpg';
 import categoryMovies from './category-movies.jpg';
 import noImg from './no-image.png';
+import noImgDetails from './no-image-details.jpg';
 
 export const LogoImg = {
   img: logo,
@@ -61,5 +62,10 @@ export const categoryImgs = {
 
 export const noImage = {
   img: noImg,
+  alt: 'Imagen no disponible',
+};
+
+export const noImageDetails = {
+  img: noImgDetails,
   alt: 'Imagen no disponible',
 };

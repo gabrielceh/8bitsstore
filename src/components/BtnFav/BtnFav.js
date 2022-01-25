@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Icon } from '@chakra-ui/react';
+import { Box, Icon, Tooltip } from '@chakra-ui/react';
 import { AiFillHeart } from 'react-icons/ai';
 import FavoriteContext from '../../context/FavoriteContext';
 
@@ -16,18 +16,17 @@ const BtnFav = ({ isFav, item }) => {
   };
 
   return (
-    <Box as={'button'} fontSize={'25px'}>
-      {isFav ? (
-        <Icon
-          as={AiFillHeart}
-          color={'redPrincipal.light'}
-          title={'Remover de favoritos'}
-          onClick={handleDelete}
-        />
-      ) : (
-        <Icon as={AiFillHeart} title={'Agregar a favoritos'} onClick={handleAdd} />
-      )}
-    </Box>
+    <>
+      <Tooltip label={isFav ? 'Eliminar de fav' : 'Agregar a fav'} aria-label="A tooltip">
+        <Box as={'button'} fontSize={'25px'}>
+          {isFav ? (
+            <Icon as={AiFillHeart} color={'redPrincipal.light'} onClick={handleDelete} />
+          ) : (
+            <Icon as={AiFillHeart} onClick={handleAdd} />
+          )}
+        </Box>
+      </Tooltip>
+    </>
   );
 };
 

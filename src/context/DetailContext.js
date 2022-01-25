@@ -1,8 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { getProductDetails } from '../helpers/details/getProductDetails';
-import { getFiguresByCategory } from '../helpers/getFiguresByCategory';
-import { orderDataByName } from '../helpers/order/orderCategoryByName';
-import { orderDataByPrice } from '../helpers/order/orderCategoryByPrice';
+import { useModal } from '../hooks/useModal';
 import FavoriteContext from './FavoriteContext';
 
 const DetailsContext = createContext();
@@ -11,9 +9,10 @@ const fav8bits = 'fav-8bits-store';
 let initialFav = localStorage.getItem(fav8bits) ? JSON.parse(localStorage.getItem(fav8bits)) : [];
 
 export const DetailsProvider = ({ children }) => {
-  // const [resData, setResData] = useState([]);
+  const [resData, setResData] = useState([]);
   // const [completeRes, setCompleteRes] = useState({});
   const { updateFav } = useContext(FavoriteContext);
+  const [isOpen, openModal, closeModal] = useModal();
 
   useEffect(() => {
     initialFav = localStorage.getItem(fav8bits) ? JSON.parse(localStorage.getItem(fav8bits)) : [];
@@ -25,7 +24,7 @@ export const DetailsProvider = ({ children }) => {
 
     if (local.length <= 0) {
       // setCompleteRes(res);
-      // setResData(res.data);
+      setResData(res.data);
       return res;
     }
 
@@ -46,12 +45,16 @@ export const DetailsProvider = ({ children }) => {
     });
     // console.log(resLocal);
     // setCompleteRes({ ...res, data: resLocal });
-    // setResData(resLocal);
-    return res;
+    setResData(resLocal);
+    return resLocal;
   };
 
   const data = {
     productGet,
+    resData,
+    isOpen,
+    openModal,
+    closeModal,
   };
 
   return <DetailsContext.Provider value={data}>{children}</DetailsContext.Provider>;

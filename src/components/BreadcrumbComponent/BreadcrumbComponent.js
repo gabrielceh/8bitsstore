@@ -5,6 +5,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import { LinkCommon } from '../../styled/links.styled';
 
 const BreadcrumbComponent = ({ data = [] }) => {
+  // console.log(data);
   return (
     <Box bg={'yellowPrincipal.dark'} color={'white'} padding={{ base: '0 1rem', md: '0' }}>
       <Breadcrumb
@@ -14,6 +15,12 @@ const BreadcrumbComponent = ({ data = [] }) => {
       >
         {data.map((item, i) =>
           i === data.length - 1 ? (
+            <BreadcrumbItem key={item.id}>
+              <Text fontSize={'10px'} color={'yellowPrincipal.light'}>
+                {item.label.toUpperCase()}
+              </Text>
+            </BreadcrumbItem>
+          ) : item.label === 'details' ? (
             <BreadcrumbItem key={item.id}>
               <Text fontSize={'10px'} color={'yellowPrincipal.light'}>
                 {item.label.toUpperCase()}

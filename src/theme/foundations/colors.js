@@ -17,6 +17,8 @@ const colors = {
     dark: '#c7c000',
   },
   text: '#141414',
+  facebookColor: '#1B75E5',
+  twitterColor: '#00acee',
 };
 
 export default colors;

@@ -14,6 +14,7 @@ import { FavViewProvider } from '../context/FavViewContext';
 import { NewProvider } from '../context/NewContext';
 import ProductDetailsView from '../views/ProductDetailsView';
 import { DetailsProvider } from '../context/DetailContext';
+import BtnUp from '../components/BtnUp/BtnUp';
 
 const AppRoutes = () => {
   const location = useLocation();
@@ -30,6 +31,7 @@ const AppRoutes = () => {
   return (
     <>
       <NavbarComponent breadCrumb={breadCrumb} />
+      <BtnUp />
 
       <Routes>
         <Route path="/" element={<Home />} />

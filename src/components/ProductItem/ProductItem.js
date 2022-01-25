@@ -21,8 +21,6 @@ const ProductItem = ({ item, typeView }) => {
       overflow="hidden"
       margin={'0 auto'}
       className="animate__animated animate__fadeIn"
-      onClick={handleDetail}
-      cursor={'pointer'}
     >
       <Box
         display={typeView === 'grid' ? '' : 'flex'}
@@ -34,6 +32,9 @@ const ProductItem = ({ item, typeView }) => {
           src={item.img.img}
           alt={item.img.alt}
           maxW={typeView === 'grid' ? '190px' : '150px'}
+          _hover={{ opacity: '0.5' }}
+          onClick={handleDetail}
+          cursor={'pointer'}
         />
 
         <Box
@@ -72,7 +73,16 @@ const ProductItem = ({ item, typeView }) => {
               {el}
             </Box>
           ))}
-          <Box mt="1" fontWeight="semibold" as="h4" lineHeight="tight" isTruncated>
+          <Box
+            mt="1"
+            fontWeight="semibold"
+            as="h4"
+            lineHeight="tight"
+            isTruncated
+            onClick={handleDetail}
+            cursor={'pointer'}
+            _hover={{ color: 'redPrincipal.light' }}
+          >
             {item.name}
           </Box>
 
